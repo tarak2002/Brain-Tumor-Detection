@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Prediction page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400&display=swap');
+    *{
+        padding: 0;
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        box-sizing: border-box;
+    }
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #2C3136;
+    }
+    .container{
+        margin-top: 100px;
+        height: 430px;
+        max-width: 850px;
+        width: 100%;
+        background: #fff;
+        padding: 30px;
+        border-radius: 30px;
+    }
+    form{
+        position: absolute;
+        margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 620px;
+}
+input[type="file"] {
+  display: none;
+}
+.upload-btn {
+    background-color: transparent;
+    color: #2C3136;
+    font-size: 20px;
+    font-weight: 800;
+    padding: 12px 24px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 60px;
+    border-style:solid ;
+    border-color: #83B5DA;
+
+}
+.upload-btn:hover {
+  background-color: #83B5DA;
+  color: #fff;
+  border-color: #2C3136;
+}
+.image-preview-container {
+    position: relative;
+        width: 50%;
+        height: 240px;
+        background: #DBD8D7;
+        margin-bottom: 30px;
+        border-radius: 15px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        
+}
+.image-preview-container .icon::before{
+        font-size: 100px;
+        opacity: 0;
+    }
+    .image-preview-container h3{
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 6px;
+    }
+    .image-preview-container p{
+        color: #999;
+    }
+    #image-preview {
+      margin-top: 110px;
+  max-width: 100%;
+  max-height: 100%;
+  display: none;
+ }
+ .submit-btn {
+    background-color: #fff;
+    color: #DE808C;
+    font-size: 20px;
+    font-weight: 800;
+    padding: 1px 24px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 100px;
+    margin-top: 10px;
+    border-style: solid;
+    
+}
+
+.submit-btn:hover {
+  background-color: #DC6F78;
+  color: #f2f2f2;
+  border-color: #2C3136;
+}
+.analysis-image {
+    position:fixed;
+ margin-left: 345px;
+  max-width: 50%;
+  max-height: 65vh;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-container">
+            <img src="/static/images/Other 11.png" alt="Analysis" class="analysis-image">
+          </div>
+        <form action="/success" method="post" enctype="multipart/form-data">
+            <input type="file" name="image" id="image" onchange="previewImage()" accept="image/*">
+            <div class="image-preview-container">
+                <img id="image-preview" src="" alt="Image Preview">
+                <br><br>
+                <h3>Upload Image</h3>
+                <p>Upload THe MRI Image here</p>
+            </div>
+            <label for="image" class="upload-btn">Choose Image</label>
+            <button type="submit" name="submit" class="submit-btn">Predict</button>
+    </form>
+    </div>
+    <script>
+        function previewImage() {
+          var preview = document.getElementById("image-preview");
+          var file = document.getElementById("image").files[0];
+          var reader = new FileReader();
+          reader.onloadend = function() {
+            preview.src = reader.result;
+            preview.style.display = "block";
+          }
+          if (file) {
+            reader.readAsDataURL(file);
+          } else {
+            preview.src = "";
+            preview.style.display = "none";
+          }
+        }
+      </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400&display=swap');
+        body{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            background-color: #2C3136;
+            font-family: 'poppins','Sans-serif';
+            display: block;
+        }
+        .container{
+            background-color: #fff;
+            margin-left: 120px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30px;
+            margin-top: 40px;
+            height: 460px;
+            width: 1000px;
+            padding: 40px;
+        }
+        .container .img{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 250px;
+            height: 250px;
+        }
+        h1{
+            color: #AC91D3;
+            text-align: center;
+            margin: 10px;
+        }
+        h3{
+            color: #465D6B;
+            text-align: center;
+            align-content: center;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    {% if predictions == "No Tumor" %}
+        <div class="container">
+            <img src="/static/images/{{img}}" alt="MRI" class="img">
+            <h1>No Tumor is Detected</h1>
+            <h3>Based on the results of your tests, We are pleased to inform you that no tumor was detected. This is great news and we hope that it brings you peace of mind. However, please continue to follow up with your healthcare provider for any further questions or concerns you may have.</h3>
+        </div>
+    {% endif %}
+
+    {% if predictions != "No Tumor" %}
+    <div class="container">
+        <img src="/static/images/{{img}}" alt="MRI" class="img">
+        <h1>Tumor Detected is <b>{{predictions}}</b> </h1>
+        <h3>We are sorry to inform you that the results of your tests indicate the presence of a tumor. Please know that we understand this can be difficult news to receive, but please remember that there are treatment options available and your healthcare provider will work with you to develop a plan of action. It's important to stay positive and know that you are not alone in this journey. We encourage you to discuss any questions or concerns you may have with your healthcare provider.</h3>
+    </div>
+    {% endif %}
+</body>
+</html>
