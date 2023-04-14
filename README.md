@@ -53,7 +53,7 @@ https://user-images.githubusercontent.com/100336584/231940723-90ea4312-cad7-4dd3
 # References
 <ul>
 <li>
-Brain MRI Images for Brain Tumor Detection dataset: https://www.kaggle.com/navoneel/brain-mri-images-for-brain-tumor-detection</li>
+Brain MRI Images for Brain Tumor Detection dataset: https://www.kaggle.com/datasets/sartajbhuvaji/brain-tumor-classification-mri</li>
 <li>Keras documentation: https://keras.io/</li>
 <li>TensorFlow documentation: https://www.tensorflow.org/api_docs</li>
 </ul>
